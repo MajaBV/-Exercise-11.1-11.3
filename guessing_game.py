@@ -11,8 +11,9 @@ with open("score.txt", "r") as score_file:
     best_score = json.loads(score_file.read())
     print("Top score (broj_pokusaja): " + str(best_score))
 
+new_best_score = sorted(best_score, key=lambda x: x['broj pokusaja'])[:3]
 
-for score_dict in best_score:
+for score_dict in new_best_score:
     print("Dan/sat {0} Igrac {1} je imao/la {2} pokusaja. Skriveni broj je broj {3}. Pogresni pokusaji {4}".format(score_dict.get("datum"), score_dict.get("igrac"), str(score_dict.get("broj pokusaja")), score_dict.get("tajni broj"), score_dict.get("pogresni pokusaji")))
 
 while True:
